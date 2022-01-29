@@ -1,0 +1,42 @@
+.icon {
+  --size: 30px;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  mask-size: contain;
+  background: #5b5b5b;
+  mask-repeat: no-repeat; }
+  .icon.cover {
+    mask-size: cover; }
+  .icon.block {
+    display: block; }
+  .icon.arrow {
+    mask-image: url("/static/media/arrow.svg"); }
+    .icon.arrow.left {
+      transform: rotate(90deg); }
+    .icon.arrow.up {
+      transform: rotate(180deg); }
+    .icon.arrow.right {
+      transform: rotate(270deg); }
+  .icon.nav-menu {
+    mask-image: url("/static/media/nav_menu_icon.svg"); }
+  .icon.notification {
+    mask-image: url("/static/media/notification_icon.svg"); }
+  .icon.front-office {
+    mask-image: url("/static/media/front_office.svg"); }
+  .icon.phlebotomy {
+    mask-image: url("/static/media/phlebotomy.svg"); }
+  .icon.laboratory {
+    mask-image: url("/static/media/laboratory.svg"); }
+  .icon.admin {
+    mask-image: url("/static/media/admin.svg"); }
+  .icon.dispatch {
+    mask-image: url("/static/media/dispatch.svg"); }
+  .icon.analyzers {
+    mask-image: url("/static/media/analyzers.svg"); }
+  .icon.qc {
+    mask-image: url("/static/media/qc.svg"); }
+  .icon.account {
+    mask-image: url("/static/media/account.svg"); }
+  .icon.inventory {
+    mask-image: url("/static/media/inventory.svg"); }

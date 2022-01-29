@@ -1,0 +1,287 @@
+// main.scss
+
+@import './varibles.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	list-style: none;
+}
+body {
+    overflow-y: scroll;
+	font-size: 14px;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	color: $color;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#app {
+	min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 15px 10px;
+    box-shadow: $highShadow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    overflow: hidden;
+
+    .item-wrapper {
+        display: flex;
+        align-items: center;
+        
+        > *:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    button.user {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 5px;      
+        }
+
+        span {
+            font-weight: 600;
+            margin-right: 4px;
+        }
+    }
+}
+
+.logo {
+    height: 40px;
+    img {
+        height: 100%;
+    }
+}
+
+.lab-id {
+    font-size: 25px;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: $color;
+}
+
+button:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+}
+
+.indicator {
+    position: absolute;
+    right: 0.127rem;
+    top: 0.165rem;
+    min-width: 12px;
+    min-height: 10px;
+    background-color: #f00;
+    z-index: 1;
+    border: 0.065rem solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 0.45rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.087rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 287px;
+    background-color: #fff;
+    box-shadow: $highShadow;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 10px 0;
+    font-size: 15px;
+
+    a {
+        color: $color;
+        font-weight: 500;
+    }
+
+    > .list {
+        padding: 10px 0;
+
+        > .item {
+            position: relative;
+            
+            .control {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: 8px 10px;
+                transition: background-color .3s linear;
+
+                .icon-title__wrap {
+                    display: flex;
+                    align-items: center;
+                    
+                    .icon {
+                        min-width: 22px;
+                        margin-right: 12px;
+                    }
+                    
+                    .title {
+                        position: relative;
+                        text-align: center;
+                        margin-right: 10px;
+                        vertical-align: baseline;
+                        text-transform: capitalize;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -5px;
+                            height: 2px;
+                            width: 90%;
+                            left: 5%;
+                            background-color: #fff;
+                            transition: background-color .3s linear;
+                        }
+                    }
+                }
+    
+                .icon.arrow {
+                    margin-right: 10px;
+                    transition: transform .3s linear;
+                }
+
+                &.active {
+                    .icon-title__wrap {
+                        .icon {
+                            background-color: $appColor;
+                        }
+                        .title::after {
+                            background-color: $appColor;
+                        }
+                    }
+                    .icon.arrow {
+                        transform: rotate(180deg);
+                    }
+                    ~.accordion {
+                        display: block;
+                    }
+                }
+
+                &:hover {
+                    .icon-title__wrap {
+                        .icon {
+                            background-color: $appColor;
+                        }
+                        .title::after {
+                            background-color: $appColor;
+                        }
+                    }
+                }
+            }
+
+            .accordion {
+                flex-basis: 100%;
+                flex-grow: 1;
+                background-color: var(--bg-color);
+                display: none;
+
+                .list {
+                    .item {
+                        padding: 8px 10px;
+                        text-align: center;
+                        background-color: $hoverColor;
+                        
+                        &:not(:first-child) {
+                            margin-top: 3px;
+                        }
+
+                        &.active {
+                            background-color: $activeColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main {
+    position: absolute;
+    width: calc(100% - (287px + 10px));
+    top: 80px;
+    right: 0;
+
+    .content {
+        position: relative;
+        box-shadow: $highShadow;
+        min-height: calc(100vh - (80px + 80px + 10px));
+        margin-bottom: 10px;
+
+        .head {
+            font-weight: 700;
+            text-transform: capitalize;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .nav-paths {
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+
+                > *:not(:last-child) {
+                    margin-right: 5px;
+                    
+                    &.fade {
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+
+        .body {
+            padding: 10px;
+        }
+    }
+
+    .footer {
+        position: relative;
+        min-height: 80px;
+        box-shadow: $highShadow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        
+        >div {
+            padding: 10px;
+            font-size: 12px;
+            a {
+                color: $color;
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+// icons.scss
+
+@import './varibles.scss';
+
+.icon {
+    --size: 30px;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    mask-size: contain;
+    background: $color;
+    mask-repeat: no-repeat;
+
+    &.cover {
+        mask-size: cover;
+    }
+
+    &.block {
+        display: block;
+    }
+
+    &.arrow {
+        mask-image: url('/static/media/arrow.svg');
+
+        &.left {
+            transform: rotate(90deg);
+        }
+
+        &.up {
+            transform: rotate(180deg);
+        }
+
+        &.right {
+            transform: rotate(270deg);
+        }
+    }
+
+    &.nav-menu {
+        mask-image: url('/static/media/nav_menu_icon.svg');
+    }
+    &.notification {
+        mask-image: url('/static/media/notification_icon.svg');
+    }
+    &.front-office {
+        mask-image: url('/static/media/front_office.svg');
+    }
+    &.phlebotomy {
+        mask-image: url('/static/media/phlebotomy.svg');
+    }
+    &.laboratory {
+        mask-image: url('/static/media/laboratory.svg');
+    }
+    &.admin {
+        mask-image: url('/static/media/admin.svg');
+    }
+    &.dispatch {
+        mask-image: url('/static/media/dispatch.svg');
+    }
+    &.analyzers {
+        mask-image: url('/static/media/analyzers.svg');
+    }
+    &.qc {
+        mask-image: url('/static/media/qc.svg');
+    }
+    &.account {
+        mask-image: url('/static/media/account.svg');
+    }
+    &.inventory {
+        mask-image: url('/static/media/inventory.svg');
+    }
+}
